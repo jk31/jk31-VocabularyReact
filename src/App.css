@@ -1,3 +1,8 @@
-.App {
+main {
   margin: 30px;
+}
+
+.practiceWord {
+  border: 1px solid red;
+  padding: 10px;
 }

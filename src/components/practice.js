@@ -1,6 +1,8 @@
 import React from 'react';
 
-class VocabularyList extends React.Component {
+import '../App.css';
+
+class Practice extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -18,26 +20,29 @@ class VocabularyList extends React.Component {
                     "Word2": "Haus",
                 },
             ],
+            wordToPractice: "Click me to start!"
         };
     }
+
+    random_word = () => {
+        var word = this.state.vocabulary[Math.floor(Math.random()*this.state.vocabulary.length)];
+        this.setState({ wordToPractice: word["Word1"] });
+    };
+
     render() {
-
-        const listWords = this.state.vocabulary.map((word, index) =>
-            <tr key={index}>
-                <td>{word["Word1"]}</td>
-                <td>{word["Word2"]}</td>
-            </tr>
-        )
-
         return (
             <React.Fragment>
                 <main>
-                    <h3>Vocabulary List</h3>
-                    <table width="100%">
-                        <tbody>
-                            {listWords}
-                        </tbody>  
-                    </table>
+                    <span 
+                    className="practiceWord"
+                    >
+                        {this.state.wordToPractice}
+                    </span>
+                    <br></br>
+                    <br></br>
+                    <button onClick={this.random_word}>
+                        OK
+                    </button>
                 </main>
             </React.Fragment>
         );
@@ -45,4 +50,4 @@ class VocabularyList extends React.Component {
 }
 
 
-export default VocabularyList;
+export default Practice;
