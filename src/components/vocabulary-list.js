@@ -4,22 +4,10 @@ class VocabularyList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            vocabulary: [
-                {
-                    "Language1": "English",
-                    "Language2": "German",
-                    "Word1": "tree",
-                    "Word2": "Baum",
-                },
-                {
-                    "Language1": "English",
-                    "Language2": "German",
-                    "Word1": "house",
-                    "Word2": "Haus",
-                },
-            ],
+            vocabulary: props.vocabulary,
         };
     }
+    
     render() {
 
         const listWords = this.state.vocabulary.map((word, index) =>
@@ -33,7 +21,7 @@ class VocabularyList extends React.Component {
             <React.Fragment>
                 <main>
                     <h3>Vocabulary List</h3>
-                    <table width="100%">
+                    <table width="30%">
                         <tbody>
                             {listWords}
                         </tbody>  
