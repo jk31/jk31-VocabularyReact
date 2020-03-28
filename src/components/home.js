@@ -1,71 +1,21 @@
 import React from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { newWord } from "../actions/new_word"
 
-class Home extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            data: "",
-            userInput: "",
-            vocabulary: [],
-        };
-    }
+function Home() {
+    const words = useSelector(state => state.words);
+    const dispatch = useDispatch();
 
-    handleChange = (event) => {
-        this.setState({userInput: event.target.value});
-    }
-
-    upload_data = () => {
-        console.log("INPUT " + this.state.userInput);
-        this.setState({data: this.state.userInput}, function() {
-            console.log("state data:" + this.state.data);
-        });
-        var data = this.state.data.split("\n");
-        console.log("stata data again: " + this.state.data);
-        var data_split = data.map((row, index) => 
-            row.split(",")
-        )
-        data_split.map((row, index) => {
-            var new_element = this.state.vocabulary.push(
-                [
-                 {
-                    "Language1": row[0],
-                    "Language2":  row[1],
-                    "Word1":  row[2],
-                    "Word2":  row[3],
-                 }
-                ]
-            )
-            this.setState({vocabulary: new_element})
-        }
-        )
-        console.log(this.state.vocabulary)
-    }
-
-    render() {
-        return (
-            <main className="Home">
-            <p>HOME</p>
-
-            <div>
-                <label>Your Dataset:</label><br></br>
-                <textarea 
-                value={this.state.userInput}
-                onChange={this.handleChange}
-                />
-                <br></br>
-                <button onClick={this.upload_data}>
-                    Data
-                </button>
-            </div>
-            </main>
-        );
-    }   
+    return (
+        <main className="Home">
+            <p>State: {words}</p>
+            <button 
+                onClick={() => dispatch(newWord("new word creation"))}
+            >
+                Add new word
+            </button>
+        </main>
+    );
 }
 
 export default Home;
-
-
-/* 
-English	German	zealous	eifrig
-English	German	compelling	zwingend
-English	German	striving	Streben */

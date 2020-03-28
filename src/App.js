@@ -53,8 +53,8 @@ function App() {
   return (
     <Switch>
         <Route path="/" component={Home} exact />
-        <Route path="/vocabularylist" component={() => <VocabularyList vocabulary={state.vocabulary}/>}/>
-        <Route path="/practice" component={() => <Practice vocabulary={state.vocabulary}/>}/>
+        <Route path="/vocabularylist" component={VocabularyList}/>
+        <Route path="/practice" component={Practice}/>
     </Switch>
   );
 }
