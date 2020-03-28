@@ -2,18 +2,23 @@ import React from 'react';
 import { newWord } from "../actions/new_word"
 import { connect } from 'react-redux'
 
-function Home(props) {
+class Home extends React.Component{
+    constructor(props) {
+        super(props);
+    }
 
-    return (
-        <main className="Home">
-            <p>State: {props.words}</p>
-            <button 
-                onClick={() => props.new_word()}
-            >
-                Add new word
-            </button>
-        </main>
-    );
+    render() {
+        return (
+            <main className="Home">
+                <p>State: {this.props.words}</p>
+                <button 
+                    onClick={() => this.props.new_word()}
+                >
+                    Add new word
+                </button>
+            </main>
+        );
+    }
 }
 
 const mapStateToProps = state => {
