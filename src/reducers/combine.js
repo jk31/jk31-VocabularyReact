@@ -1,9 +1,11 @@
-import Words from "./words";
+import words from "./words";
+import fetchingReducer from "../fetching/fetchingReducer";
 
 import { combineReducers } from "redux";
 
-const allReducers = combineReducers({
-    words: Words
+const rootReducer = combineReducers({
+    words: words,
+    fetchingReducer: fetchingReducer
 })
 
-export default allReducers;
+export default rootReducer;

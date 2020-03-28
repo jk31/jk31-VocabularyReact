@@ -1,8 +1,13 @@
-import { createStore } from "redux";
-import allReducers from "../reducers/combine";
+import { createStore, applyMiddleware } from "redux";
+import { composeWithDevTools } from 'redux-devtools-extension';
+import logger from "redux-logger";
+import rootReducer from "../reducers/combine";
+
+let initial_data = {words: "from store"};
+
 
 const store = createStore(
-    allReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    rootReducer, composeWithDevTools(applyMiddleware(logger))
     );
 
 

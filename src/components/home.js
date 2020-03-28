@@ -8,6 +8,8 @@ class Home extends React.Component{
     }
 
     render() {
+
+
         return (
             <main className="Home">
                 <p>State: {this.props.words}</p>
@@ -15,12 +17,16 @@ class Home extends React.Component{
                     onClick={() => this.props.new_word()}
                 >
                     Add new word
+                </button> <br></br>
+                <button onClick={() => console.log("nothing")}>
+                    Store
                 </button>
             </main>
         );
     }
 }
 
+// with second argument it can be conditioned what is stated
 const mapStateToProps = state => {
     return {
        words: state.words

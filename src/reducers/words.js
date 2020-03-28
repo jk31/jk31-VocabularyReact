@@ -1,4 +1,4 @@
-const Words = (state = "default state in words.js", action) =>  {
+const words = (state = "", action) =>  {
     switch(action.type){
         case "NEW_WORD":
             return state = action.payload;
@@ -7,4 +7,4 @@ const Words = (state = "default state in words.js", action) =>  {
     }
 }
 
-export default Words;
+export default words;
