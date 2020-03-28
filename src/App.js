@@ -5,6 +5,7 @@ import Home from "./components/home";
 import VocabularyList from "./components/vocabulary-list";
 import Practice from "./components/practice";
 import Change from "./components/change";
+import Fetching from "./components/fetching";
 
 import './App.css';
 
@@ -57,6 +58,7 @@ function App() {
         <Route path="/vocabularylist" component={VocabularyList}/>
         <Route path="/practice" component={Practice}/>
         <Route path="/change" component={Change}/>
+        <Route path="/fetching" component={Fetching}/>
     </Switch>
   );
 }

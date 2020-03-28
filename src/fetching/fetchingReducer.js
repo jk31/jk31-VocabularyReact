@@ -20,13 +20,13 @@ const fetchingReducer = (state = initialState, action) => {
       case FETCH_SUCCESS:
         return {
           loading: false,
-          users: action.payload,
+          fetch: action.payload,
           error: ''
         }
       case FETCH_FAILURE:
         return {
           loading: false,
-          users: [],
+          fetch: [],
           error: action.payload
         }
       default: return state
