@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import Home from "./components/home";
 import VocabularyList from "./components/vocabulary-list";
 import Practice from "./components/practice";
+import Change from "./components/change";
 
 import './App.css';
 
@@ -55,6 +56,7 @@ function App() {
         <Route path="/" component={Home} exact />
         <Route path="/vocabularylist" component={VocabularyList}/>
         <Route path="/practice" component={Practice}/>
+        <Route path="/change" component={Change}/>
     </Switch>
   );
 }

@@ -1,16 +1,14 @@
 import React from 'react';
-import { useDispatch, useSelector } from "react-redux";
 import { newWord } from "../actions/new_word"
+import { connect } from 'react-redux'
 
-function Home() {
-    const words = useSelector(state => state.words);
-    const dispatch = useDispatch();
+function Home(props) {
 
     return (
         <main className="Home">
-            <p>State: {words}</p>
+            <p>State: {props.words}</p>
             <button 
-                onClick={() => dispatch(newWord("new word creation"))}
+                onClick={() => props.new_word()}
             >
                 Add new word
             </button>
@@ -18,4 +16,16 @@ function Home() {
     );
 }
 
-export default Home;
+const mapStateToProps = state => {
+    return {
+       words: state.words
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        new_word: () => dispatch(newWord("new word from mapdispatch"))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

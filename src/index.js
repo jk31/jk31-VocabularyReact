@@ -21,6 +21,7 @@ ReactDOM.render(
       <li><a href="/">Home</a></li>
       <li><a href="/vocabularylist">Vocabulary List</a></li>
       <li><a href="/practice">Practice</a></li>
+      <li><a href="/change">Change</a></li>
     </ul>
   </div>,
 document.getElementById('navbar')
